@@ -1,0 +1,80 @@
+# Bash Template
+# Author: Brendan O'Connor 
+# Date: August 2023
+#
+# The purpose of this program is to provide enough of a starting point 
+# to write bash (sh) scrtipts without needing to do too much research
+# on syntax. 
+
+# Capture and output args from the command line
+echo "You passed: $1"
+
+# Change Subnet info on the host
+# If the following were pasted into test.sh:
+#    $1 = IP address
+#    $2 = Subnet mask
+#    $3 = Default Gateway
+ifconfig eth0 $1 netmask $2
+route add default gateway $3
+
+# Broadcast message to users over CLI
+wall -n "This is another test"
+
+# Displays available space for filesystems of a certain type 
+df -BM 
+df -BM -t ext4
+
+# CLI tool for checking storage partitions
+fdisk /dev/sda 
+Command (m for help): p #p command lists partitions
+
+Disk /dev/sda: 16 GiB, 17179869184 bytes, 33554432 sectors #<<< Notice "16 GiB" (Hard Disk)
+Disk model: Virtual disk
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: BCD02BCE-03D6-4E10-9262-F621432E1DC7
+
+Device     Start      End  Sectors Size Type
+/dev/sda1   2048    10239     8192   4M BIOS boot
+/dev/sda2  30720 33554398 33523679  16G Linux filesystem 
+/dev/sda3  10240    30719    20480  10M EFI System
+
+# FDISK single line commands
+fdisk -l /dev/sda #equivalent to p command
+
+# Rescan storage
+echo 1 > /sys/class/block/sda/device/rescan
+
+Command (m for help): p #List partitions
+
+Disk /dev/sda: 50 GiB, 53687091200 bytes, 104857600 sectors #Notice the size has changed to 50GB
+Disk model: Virtual disk
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: BCD02BCE-03D6-4E10-9262-F621432E1DC7
+
+Device     Start      End  Sectors Size Type
+/dev/sda1   2048    10239     8192   4M BIOS boot
+/dev/sda2  30720 33554398 33523679  16G Linux filesystem #Remember "End" value (A)
+/dev/sda3  10240    30719    20480  10M EFI System
+
+# Resize the filesystem
+fdisk /dev/sda
+p #List partitions 
+d #Delete partition
+2 #Number 2 (sda2 Linux Filesystem)
+n #New partition
+2 #Number 2 (recreates sda2)
+30720 #This is the start value next to sda2 from original partition
+(default) #Use the default - will be something like 104857566
+N #Partition 2 should contain ext4 signature, if so do not remove signature
+p #List partitions - you should see new size next to Linux filesystem
+q #Quit fdisk
+resize2fs /dev/sda2
+
+# Run multiple commands from one line 
+(echo "this"; echo "that"; echo "the other thing")
