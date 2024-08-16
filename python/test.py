@@ -1,0 +1,4 @@
+import lib_logs_and_headers
+
+lib_logs_and_headers.e2e_print_header()
+lib_logs_and_headers.hesiod_print_header()
