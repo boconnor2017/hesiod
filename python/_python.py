@@ -6,9 +6,13 @@
 # to write python scrtipts without needing to do too much research
 # on syntax. 
 
+"""
+This is a comment block
+"""
+
 # Send output to command line
 a = "Hello world"
-print a
+print(a)
 
 # Pass args to a python script
 # Copy below into test.py
@@ -93,3 +97,12 @@ for x in line:
 # Append data to a list 
 fruits = ['apple', 'banana', 'cherry']
 fruits.append("orange")
+
+# Data Conversions
+some_number = 5
+some_string = str(some_number)
+
+# Replace Method
+txt = "I like bananas"
+x = txt.replace("bananas", "apples")
+print(x)
