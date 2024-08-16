@@ -46,8 +46,3 @@ def run_local_shell_cmd(cmd):
     err = subprocess.run(cmd, capture_output=True)
     return err
 
-def write_to_logs(err, logfile_name):
-    tstamp = str(datetime.now())
-    logfile = open(logfile_name, "a")
-    logfile.write(tstamp+": "+err+" \n")
-    logfile.close
