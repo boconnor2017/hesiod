@@ -56,7 +56,37 @@ def e2e_print_header():
     print(err)
     err = "/  /____   /  /_____  /  /____"
     print(err)
-    err = "_______/  /________/ / _______/   2024"
+    err = "_______/  /________/ / _______/"
+    print(err)
+    err = ""
+    print(err)
+    err = "Author: Brendan O'Connor"
+    print(err)
+    err = "Source Code: https://github.com/boconnor2017"
+    print(err)
+    err = ""
+    print(err)
+    err = ""
+    print(err)
+
+def hesiod_print_header():
+    err = ""
+    print(err)
+    err = "                                    ____                ___"
+    print(err)
+    err = "                                   /___/               /  /"
+    print(err)
+    err = "     ___     ___ __________   _______                 /  /"
+    print(err)
+    err = "    /  /    /  //  _______/  /      /  ________ _____/  / "
+    print(err)
+    err = "   /  /____/  //  /______   /   /__/_ /  __   //  __   /"
+    print(err)
+    err = "  /  _____   //  _______/__/   //   //  / /  //  / /  /"
+    print(err)
+    err = " /  /    /  //  /______ / /   //   //  /_/  //  /_/  /"
+    print(err)
+    err = "/__/    /__//_________//_____//___//_______//_______/"
     print(err)
     err = ""
     print(err)
