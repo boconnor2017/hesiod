@@ -1,5 +1,4 @@
-# PyTorch Tutorials
-
+# Terms and Definitions
 | Term | Definition |
 |------|------------|
 | Vector | A term that refers to some quantities that cannot be expressed by a single number, or to elements of some vector spaces. |
@@ -12,7 +11,20 @@
 | Derivative | A fundamental tool that quantifies the sensitivity of change of a function's output with respect to its input. The derivative of a function of a single variable at a chosen input value, when it exists, is the slope of the tangent line to the graph of the function at that point. |
 | Partial Derivative | A derivative which holds some variables as constants. |
 | Automatic Differentiation | A set of techniques to evaluate the partial derivative of a function specified by a computer program. |
+| Polynomial | An expression involving addition, subtraction, multiplication, and positive-integer powers of variables. |
+| Cubic Function | A function of the polynomial function of degree three. f(x) = ax^3 + bx^3 + cx + d
 
-PyTorch provides two main features:
+# Python Libraries
+**Torch** (i.e. PyTorch) is a [library](https://pypi.org/project/torch/) that provides two main features:
 1. An n-dimensional **Tensor**
 2. Automatic differentiation for building and training neural networks
+
+**NumPy** is a [library](https://numpy.org/) that provides an n-dimensional array object, and many functions for manipulating these arrays. Numpy is a generic framework for scientific computing. 
+
+**Math** is a [library](https://docs.python.org/3/library/math.html) that provides access to the mathematical functions defined by C standard. 
+
+**Random** is a [library](https://docs.python.org/3/library/random.html) that implements pseudo-random number generators for various distributions. Almost all modules from this library depend on the basic `random()` function which generates a random float uniformly in the half-open range `0.0 <= X < 1.0`.
+
+# References
+* [PyTorch Documentation](https://pytorch.org/)
+* [Neural Networks, Forward Pass, and Backpropogation](https://towardsdatascience.com/neural-networks-forward-pass-and-backpropagation-be3b75a1cfcc)
