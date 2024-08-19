@@ -17,7 +17,7 @@
 #     7. Python modules (pip): setuptools, flask-restful, docker, paramiko, VMware Python SDK, cryptography
 
 # Update/install basic Linux tools
-yum -y update
+yum -y update --nogpgcheck
 yum -y install git bindutils lvm2
 yum -y install https://repo.ius.io/ius-release-el$(rpm -E '%{rhel}').rpm
 # Install python3
@@ -30,13 +30,6 @@ git clone https://github.com/boconnor2017/hesiod.git /usr/local/hesiod
 # Start Docker
 systemctl start docker
 systemctl status docker
-# Configure DNS to ensure public nslookup
-curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/photon/resolv.conf >> /run/systemd/resolve/new-resolv.conf
-rm /run/systemd/resolve/stub-resolv.conf
-rm /etc/resolv.conf
-cp /run/systemd/resolve/new-resolv.conf /run/systemd/resolve/stub-resolv.conf
-cp /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-#systemctl restart systemd-resolved.service
 # Pause 10 seconds before running pip commands
 sleep 10
 # Run necessary pip commands
