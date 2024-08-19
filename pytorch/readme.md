@@ -12,7 +12,9 @@
 | Partial Derivative | A derivative which holds some variables as constants. |
 | Automatic Differentiation | A set of techniques to evaluate the partial derivative of a function specified by a computer program. |
 | Polynomial | An expression involving addition, subtraction, multiplication, and positive-integer powers of variables. |
-| Cubic Function | A function of the polynomial function of degree three. f(x) = ax^3 + bx^3 + cx + d
+| Cubic Function | A function of the polynomial function of degree three. f(x) = ax^3 + bx^3 + cx + d |
+| Forward Pass | The flow of information from the input to the output in a neural network. |
+| Loss or Mean Squared Error | (L) is the square of the difference between the output value `y` and the known value `y`. MSE is a risk function, used to estimate an unobserved quantity. In machine learning MSE may refer to the average loss on an observed data set, which can be used to quantify the quality of an estimator. |
 
 # Python Libraries
 **Torch** (i.e. PyTorch) is a [library](https://pypi.org/project/torch/) that provides two main features:

@@ -14,6 +14,12 @@ This is a comment block
 a = "Hello world"
 print(a)
 
+# Print f-strings
+agent_name = 'James Bond'
+kill_count = 9
+print(f'{agent_name} has killed {kill_count} enemies')
+
+
 # Pass args to a python script
 # Copy below into test.py
 # From bash, run python3 test.py arg1 arg2
