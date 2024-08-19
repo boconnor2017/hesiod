@@ -9,12 +9,12 @@ cd /usr/local/
 
 Step 2: Download controller prep script 
 ```
-curl https://raw.githubusercontent.com/boconnor2017/hesiod/pytorch-01/photon/_prep_photon.sh >> prep-photon.sh
+curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/photon/_prep_photon.sh >> prep-photon.sh
 ```
 
 Step 3: Download refresher script
 ```
-curl https://raw.githubusercontent.com/boconnor2017/hesiod/pytorch-01/photon/_refresh_photon.sh >> refresh-hesiod.sh
+curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/photon/_refresh_photon.sh >> refresh-hesiod.sh
 ```
 
 Step 4: Run E2E lab PhotonOS prep script. (Optional: open a second terminal and watch progress with `tail -f _prep_photon.log`).
