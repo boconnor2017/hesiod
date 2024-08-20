@@ -27,6 +27,24 @@
 
 **Random** is a [library](https://docs.python.org/3/library/random.html) that implements pseudo-random number generators for various distributions. Almost all modules from this library depend on the basic `random()` function which generates a random float uniformly in the half-open range `0.0 <= X < 1.0`.
 
+# Formulas
+The **Sigmoid** function is a mathematical function whose graph has a characteristic S-shaped or *sigmoid curve*. A common example of a sigmoid function is the *logistic function*:
+![img01](img/img01_logistic_function_formula.png)   
+
+![img02](img/img02_logistic_function_graph.png)   
+
+The **Tanh** (pronounced "tansh") is the hyperbolic *tangent* of a number. Hyperbolic functions are analogues of ordinary trigonomic functions that are defined using the hyperbola rather than the circle.
+![img04](img/img04_tanh_formulas.png)   
+
+![img03](img/img03_tanh_graph.png)
+
+
+The **ReLU** (or rectifier) activation function is defined as the positive part of its argument, where `x` is the input to a neuron in an artificial neural network. 
+![img05](img/img05_relu_formulas.png)   
+
+![img06](img/img06_af-charts.png)
+
+
 # References
 * [PyTorch Documentation](https://pytorch.org/)
 * [Neural Networks, Forward Pass, and Backpropogation](https://towardsdatascience.com/neural-networks-forward-pass-and-backpropagation-be3b75a1cfcc)
