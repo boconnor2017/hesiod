@@ -78,3 +78,55 @@ resize2fs /dev/sda2
 
 # Run multiple commands from one line 
 (echo "this"; echo "that"; echo "the other thing")
+
+# Create new user
+useradd -r hesiod #creates a system user account (omit the -r for standard user account)
+passwd hesiod #will prompt for password change
+
+# List all users
+cat /etc/passwd 
+
+# Give user sudo privileges
+usermod -aG sudo hesiod
+
+# Switch users
+su - hesiod
+
+# Disable ssh root login
+vi /etc/ssh/sshd_config # uncomment PermitRootLogin no
+
+# chmod
+#
+# There are three sets of permissions (i.e. actions that can be performed on the file or directory):
+#   1. For the owner of the file
+#   2. For the members of the file's group
+#   3. For everyone else
+#
+# Use ls -l to see the permissions
+root@photon-machine [ /usr/local ]# ls -l
+total 92
+-rw-r-----  1 root root   106 Aug 20 11:49 clone_dev_branch.sh
+drwxr-x--- 10 root root  4096 Aug 20 13:09 hesiod-dev
+
+# On each line the first character identifies the TYPE:
+# - means a file
+# d means a directory
+#
+# The next three characters show permissions for the user who owns the file (user permissions)
+# The middle three characters show permissions for the members of the file's group (group permissions)
+# The last three characters show permissions for everyone else (other permissions)
+#
+# There are three characters in each set of permissions:
+# - means that a permission has not been granted
+# r means read permissions have been granted
+# w means write permissions have been granted
+# x means execute permissions have been granted
+#
+# There are two names (root in the example above):
+# The first name (root) refers to the owner of the file or directory
+# The second name (also root) refers to the name of the group that the file or directory belong to
+# In the example below, notice how the values are the same even though the user has changed:
+hesiod@photon-machine [ /usr/local ]$ ls -l
+total 92
+-rw-r-----  1 root root   106 Aug 20 11:49 clone_dev_branch.sh
+drwxr-x--- 10 root root  4096 Aug 20 13:09 hesiod-dev
