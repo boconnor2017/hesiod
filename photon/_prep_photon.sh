@@ -18,7 +18,7 @@
 
 # Update/install basic Linux tools
 yum -y update --nogpgcheck
-yum -y install git bindutils lvm2
+yum -y install git bindutils lvm2 sudo
 yum -y install https://repo.ius.io/ius-release-el$(rpm -E '%{rhel}').rpm
 # Install python3
 yum -y install python3
@@ -40,5 +40,3 @@ python3 -m pip install flask-restful
 python3 -m pip install docker
 python3 -m pip install paramiko
 python3 -m pip install cryptography
-# Add vSphere Python SDK
-python3 -m pip install --upgrade git+https://github.com/vmware/vsphere-automation-sdk-python.git
