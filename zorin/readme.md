@@ -15,6 +15,16 @@ The remaining steps can use ssh via PuTTY.
 
 Step 2: Download controller prep script 
 ```
+cd /usr/
+```
+```
+sudo chmod g-w local/
+```
+```
+cd /usr/local/
+```
+
+```
 sudo curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/zorin/_prep_zorin.sh >> prep-zorin.sh
 ```
 
