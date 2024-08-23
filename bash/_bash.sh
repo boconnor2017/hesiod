@@ -135,3 +135,6 @@ drwxr-x--- 10 root root  4096 Aug 20 13:09 hesiod-dev
 hesiod@photon-machine [ /usr/local/hesiod-dev ]$ who
 hesiod   pts/0        2024-08-23 11:58 (172.16.0.4)
 hesiod   pts/1        2024-08-23 17:52 (172.16.0.4)
+
+# Lists active daemons running on the OS
+systemctl --type=service --state=running
