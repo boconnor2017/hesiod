@@ -15,28 +15,39 @@ The remaining steps can use ssh via PuTTY.
 
 Step 2: Download controller prep script 
 ```
-sudo curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/zorin/_prep_zorin.sh >> prep-zorin.sh
+cd /usr/local/
+```
+```
+sudo -s
+```
+```
+curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/zorin/_prep_zorin.sh >> prep-zorin.sh
 ```
 
 Step 3: Download refresher script
 ```
-sudo curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/zorin/_refresh_zorin.sh >> refresh-hesiod.sh
+curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/zorin/_refresh_zorin.sh >> refresh-hesiod.sh
 ```
 
 Step 4: Run Hesiod Zorin prep script. 
 ```
-sudo sh prep-zorin.sh >> _prep_zorin.log
+sh prep-zorin.sh >> _prep_zorin.log
 ```
 
 Step 5: Refresh local repo (as needed)
 ```
-sudo sh refresh-hesiod.sh
-``` 
+sh refresh-hesiod.sh
+```
 
 Step 6: Clone dev branch (optional)
 ```
 curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/zorin/clone_dev_branch.sh >> clone_dev_branch.sh
 ```
 ```
-sudo sh clone_dev_branch.sh
+sh clone_dev_branch.sh
+```
+
+Logout of root. 
+```
+exit
 ```
