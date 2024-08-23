@@ -130,3 +130,8 @@ hesiod@photon-machine [ /usr/local ]$ ls -l
 total 92
 -rw-r-----  1 root root   106 Aug 20 11:49 clone_dev_branch.sh
 drwxr-x--- 10 root root  4096 Aug 20 13:09 hesiod-dev
+
+# See the sessions/users that are using the OS
+hesiod@photon-machine [ /usr/local/hesiod-dev ]$ who
+hesiod   pts/0        2024-08-23 11:58 (172.16.0.4)
+hesiod   pts/1        2024-08-23 17:52 (172.16.0.4)

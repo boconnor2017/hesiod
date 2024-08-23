@@ -19,6 +19,11 @@
 # Update/install basic Linux tools
 apt update
 apt install git net-tools lvm2
+# Setup remote desktop connection
+apt install openssh-server
+apt install xrdp
+systemctl enable --now xrdp
+ufw allow from any to any port 3389 proto tcp
 # Install python3
 apt install python3
 apt install python3-pip
@@ -35,3 +40,5 @@ python3 -m pip install flask-restful
 python3 -m pip install docker
 python3 -m pip install paramiko
 python3 -m pip install cryptography
+# Reboot the OS
+systemctl reboot
