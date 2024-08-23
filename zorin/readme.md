@@ -29,7 +29,7 @@ Step 3: Download refresher script
 curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/zorin/_refresh_zorin.sh >> refresh-hesiod.sh
 ```
 
-Step 4: Run Hesiod Zorin prep script. 
+Step 4: Run Hesiod Zorin prep script. *Note: this script will initiate a reboot of the OS.* 
 ```
 sh prep-zorin.sh >> _prep_zorin.log
 ```
