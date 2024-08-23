@@ -37,7 +37,12 @@ sh prep-zorin.sh >> _prep_zorin.log
 Step 5: Refresh local repo (as needed)
 ```
 sh refresh-hesiod.sh
-``` 
+```
+
+Logout of root. 
+```
+exit
+```
 
 Step 6: Clone dev branch (optional)
 ```
