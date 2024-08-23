@@ -15,28 +15,28 @@ The remaining steps can use ssh via PuTTY.
 
 Step 2: Download controller prep script 
 ```
-curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/zorin/_prep_zorin.sh >> prep-zorin.sh
+sudo curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/zorin/_prep_zorin.sh >> prep-zorin.sh
 ```
 
 Step 3: Download refresher script
 ```
-curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/photon/_refresh_photon.sh >> refresh-hesiod.sh
+sudo curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/zorin/_refresh_zorin.sh >> refresh-hesiod.sh
 ```
 
-Step 4: Run E2E lab PhotonOS prep script. (Optional: open a second terminal and watch progress with `tail -f _prep_photon.log`).
+Step 4: Run Hesiod Zorin prep script. 
 ```
-sh prep-photon.sh >> _prep_photon.log
+sudo sh prep-zorin.sh >> _prep_zorin.log
 ```
 
 Step 5: Refresh local repo (as needed)
 ```
-sh refresh-hesiod.sh
+sudo sh refresh-hesiod.sh
 ``` 
 
 Step 6: Clone dev branch (optional)
 ```
-curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/photon/clone_dev_branch.sh >> clone_dev_branch.sh
+curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/zorin/clone_dev_branch.sh >> clone_dev_branch.sh
 ```
 ```
-sh clone_dev_branch.sh
+sudo sh clone_dev_branch.sh
 ```
