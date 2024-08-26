@@ -5,7 +5,7 @@
 # The purpose of this script is to prepare a PhotonOS appliance (Linux with Docker) for development. 
 # PhotonOS is the primary OS of choice for Project Hesiod. Other Operating Systems such as Windows
 # CentOS, RedHat, etc are fully supported. Please note that this script will need to be edited to 
-# execute properly on non-Photon operating systems (for example: yum vs apt-install or .sh vs .ps1). 
+# execute properly on non-Photon operating systems (for example: yum vs apt -y-install or .sh vs .ps1). 
 #
 # Preparation includes the following:
 #     1. Basic Linux Tools: git, bindutils, lvm2
@@ -17,16 +17,16 @@
 #     7. Python modules (pip): setuptools, flask-restful, docker, paramiko, VMware Python SDK, cryptography
 
 # Update/install basic Linux tools
-apt update
-apt install git net-tools lvm2
+apt -y update
+apt -y install git net-tools lvm2
 # Setup remote desktop connection
-apt install openssh-server
-apt install xrdp
+apt -y install openssh-server
+apt -y install xrdp
 systemctl enable --now xrdp
 ufw allow from any to any port 3389 proto tcp
 # Install python3
-apt install python3
-apt install python3-pip
+apt -y install python3
+apt -y install python3-pip
 python3 --version
 # Create drop folder
 mkdir /usr/local/drop
