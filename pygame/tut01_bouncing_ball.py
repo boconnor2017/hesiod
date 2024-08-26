@@ -9,7 +9,7 @@ black = 0, 0, 0
 
 screen = pygame.display.set_mode(size)
 
-ball = pygame.image.load("bouncing_balls.gif")
+ball = pygame.image.load("bouncing_ball.gif")
 ballrect = ball.get_rect()
 
 while True:
