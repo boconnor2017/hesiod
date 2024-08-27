@@ -6,12 +6,18 @@
 """
 Syntax for this library:
 
+OPTION 1 flow:
 Step 1: the JSON needs to be downloaded into a file.
 Step 2: the JSON needs to be populated into a variable.
 Step 3: the JSON needs to be converted into a python object. 
 Step 4: parse the data as needed using the python object. 
 
-Sample:
+OPTION 2 flow:
+Step 1: the JSON needs to be downloaded directly into a variable.
+Step 2: the JSON needs to be converted into a python object.
+Step 3: parse the data as needed using the python object.
+
+OPTION 1 Sample:
 
 import lib_json as libjson 
 import os
@@ -38,6 +44,8 @@ For example, in the sample above the json looks as follows:
     },
     ...
 }
+
+
 """
 
 # Base imports
@@ -53,6 +61,14 @@ def download_json_file_from_url(url, json_filename):
     # Syntax url: "https://domain.com/foo/bar/something.json"
     # Syntax json_filename: "what_I_want_to_call_it.json"
     libgen.download_file_from_github(url, json_filename)
+
+def download_json_to_var_from_url(url):
+    # Syntax url: "https://domain.com/foo/bar/something.json"
+    json_web = libgen.download_content_from_url_into_var(url)
+    # Converts the raw binary into a string
+    json_binvar = json_web.read()
+    json_stringvar = json_binvar.decode("utf-8")
+    return(json_stringvar)
 
 # Loading converts a JSON string to a python object
 def load_json_variable(json_raw):
