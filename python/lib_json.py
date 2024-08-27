@@ -68,7 +68,7 @@ def download_json_to_var_from_url(url):
     # Converts the raw binary into a string
     json_binvar = json_web.read()
     json_stringvar = json_binvar.decode("utf-8")
-    return(json_stringvar)
+    return json_stringvar
 
 # Loading converts a JSON string to a python object
 def load_json_variable(json_raw):
