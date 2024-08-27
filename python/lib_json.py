@@ -1,0 +1,71 @@
+# Hesiod JSON Python Library 2024
+# Author: Brendan O'Connor
+# Date: August 2024
+# Version: 1.0
+
+"""
+Syntax for this library:
+
+Step 1: the JSON needs to be downloaded into a file.
+Step 2: the JSON needs to be populated into a variable.
+Step 3: the JSON needs to be converted into a python object. 
+Step 4: parse the data as needed using the python object. 
+
+Sample:
+
+import lib_json as libjson 
+import os
+
+url = "https://raw.githubusercontent.com/boconnor2017/e2e-patterns/main/json/vcf-5-bringup-template.json"
+json_filename = "sample_json.json"
+json_file = libjson.download_json_file_from_url(url, json_filename)
+json_stringvar = libjson.populate_var_from_json_file(os.getcwd(), json_filename)
+json_pyvar = libjson.load_json_variable(json_stringvar)
+print("DNS Servers: "+json_pyvar["dnsSpec"]["nameserver"]+", "+json_pyvar["dnsSpec"]["secondaryNameserver"])
+
+Parsing the output:
+
+The variable json_pyvar is a python object. 
+Use the structure of the json file to produce the output. 
+For example, in the sample above the json looks as follows:
+{
+    ...
+    "dnsSpec" : {
+      "subdomain" : "vrack.vsphere.local",
+      "domain" : "vsphere.local",
+      "nameserver" : "10.0.0.250",
+      "secondaryNameserver" : "10.0.0.250"
+    },
+    ...
+}
+"""
+
+# Base imports
+import os
+import shutil
+import json 
+
+# Hesiod Library imports
+import lib_general as libgen
+
+# Downloads json as a file
+def download_json_file_from_url(url, json_filename):
+    # Syntax url: "https://domain.com/foo/bar/something.json"
+    # Syntax json_filename: "what_I_want_to_call_it.json"
+    libgen.download_file_from_github(url, json_filename)
+
+# Loading converts a JSON string to a python object
+def load_json_variable(json_raw):
+    json_python_obj = json.loads(json_raw)
+    return json_python_obj
+
+# Populates variable from contents of JSON file
+def populate_var_from_json_file(json_dir, json_filename):
+    # Syntax json_dir: "/foo/bar"
+    # Syntax json_filename: "something.json"
+    # Syntax json_file_full: "/foo/bar/something.json"
+    json_file_full = json_dir+"/"+json_filename
+    # Creates variable vcf_json_raw with contents from json file
+    json_raw = libgen.populate_var_from_file(json_file_full)
+    return json_raw
+
