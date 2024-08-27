@@ -6,18 +6,21 @@
 """
 Syntax for this library:
 
-OPTION 1 flow:
+Option 1: use this if you need to save a local copy of the json file.
+Option 2: use this if you want to return the contents of a json source. 
+
+OPTION 1 FLOW:
 Step 1: the JSON needs to be downloaded into a file.
 Step 2: the JSON needs to be populated into a variable.
 Step 3: the JSON needs to be converted into a python object. 
 Step 4: parse the data as needed using the python object. 
 
-OPTION 2 flow:
+OPTION 2 FLOW:
 Step 1: the JSON needs to be downloaded directly into a variable.
 Step 2: the JSON needs to be converted into a python object.
 Step 3: parse the data as needed using the python object.
 
-OPTION 1 Sample:
+OPTION 1 SAMPLE:
 
 import lib_json as libjson 
 import os
@@ -29,7 +32,17 @@ json_stringvar = libjson.populate_var_from_json_file(os.getcwd(), json_filename)
 json_pyvar = libjson.load_json_variable(json_stringvar)
 print("DNS Servers: "+json_pyvar["dnsSpec"]["nameserver"]+", "+json_pyvar["dnsSpec"]["secondaryNameserver"])
 
-Parsing the output:
+OPTION 2 SAMPLE:
+
+import lib_json as libjson 
+import os
+
+url = "https://raw.githubusercontent.com/boconnor2017/e2e-patterns/main/json/vcf-5-bringup-template.json"
+json_stringvar = libjson.download_json_to_var_from_url(url)
+json_pyvar = libjson.load_json_variable(json_stringvar)
+print("DNS Servers: "+json_pyvar["dnsSpec"]["nameserver"]+", "+json_pyvar["dnsSpec"]["secondaryNameserver"])
+
+PARSING THE OUTPUT:
 
 The variable json_pyvar is a python object. 
 Use the structure of the json file to produce the output. 
@@ -45,6 +58,8 @@ For example, in the sample above the json looks as follows:
     ...
 }
 
+and produces the following output:
+DNS Servers: 10.0.0.250, 10.0.0.250
 
 """
 
