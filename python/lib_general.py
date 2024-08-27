@@ -31,7 +31,11 @@ def append_text_to_file(text, file_name):
     new_file.writelines(text)
     new_file.close()
 
-def download_file_from_github(url, filename):
+def download_content_from_url_into_var(url):
+    web_content = urllib.request.urlopen(url)
+    return(web_content)
+
+def download_file_from_url(url, filename):
     urllib.request.urlretrieve(url, filename)
 
 def pause_python_for_duration(seconds):
