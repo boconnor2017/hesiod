@@ -14,6 +14,16 @@ This is a comment block
 a = "Hello world"
 print(a)
 
+# Import from a remote Github repo (ex. Hesiod)
+import httpimport
+
+url = "https://raw.githubusercontent.com/boconnor2017/hesiod/main/python/"
+
+with httpimport.remote_repo(url):
+  import lib_general as heslibgen
+
+print(heslibgen.hello_world())
+
 # Print f-strings
 agent_name = 'James Bond'
 kill_count = 9
@@ -112,3 +122,4 @@ some_string = str(some_number)
 txt = "I like bananas"
 x = txt.replace("bananas", "apples")
 print(x)
+

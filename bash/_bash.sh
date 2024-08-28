@@ -91,6 +91,10 @@ usermod -aG sudo hesiod
 
 # Switch users
 su - hesiod
+sudo su # to switch to root
+
+# Add user to sudoers file
+usermod -aG sudo hesiod
 
 # Disable ssh root login
 vi /etc/ssh/sshd_config # uncomment PermitRootLogin no

@@ -67,19 +67,20 @@ DNS Servers: 10.0.0.250, 10.0.0.250
 import os
 import shutil
 import json 
+import urllib 
 
 # Hesiod Library imports
-import lib_general as libgen
+# import lib_general as libgen
 
 # Downloads json as a file
 def download_json_file_from_url(url, json_filename):
     # Syntax url: "https://domain.com/foo/bar/something.json"
     # Syntax json_filename: "what_I_want_to_call_it.json"
-    libgen.download_file_from_github(url, json_filename)
+    urllib.request.urlretrieve(url, filename)
 
 def download_json_to_var_from_url(url):
     # Syntax url: "https://domain.com/foo/bar/something.json"
-    json_web = libgen.download_content_from_url_into_var(url)
+    json_web = urllib.request.urlopen(url)
     # Converts the raw binary into a string
     json_binvar = json_web.read()
     json_stringvar = json_binvar.decode("utf-8")
@@ -109,6 +110,7 @@ def populate_var_from_json_file(json_dir, json_filename):
     # Syntax json_file_full: "/foo/bar/something.json"
     json_file_full = json_dir+"/"+json_filename
     # Creates variable vcf_json_raw with contents from json file
-    json_raw = libgen.populate_var_from_file(json_file_full)
-    return json_raw
-
+    #json_raw = libgen.populate_var_from_file(json_file_full)
+    with open(json_filename) as file:
+        file_txt = file.read()
+        return json_raw
