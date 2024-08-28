@@ -69,6 +69,36 @@ def e2e_print_header():
     err = ""
     print(err)
 
+def hesiod_log_header(logfile_name):
+    err = ""
+    write_to_logs(err, logfile_name)
+    err = "                                    ____                ___"
+    write_to_logs(err, logfile_name)
+    err = "                                   /___/               /  /"
+    write_to_logs(err, logfile_name)
+    err = "     ___     ___ __________   _______                 /  /"
+    write_to_logs(err, logfile_name)
+    err = "    /  /    /  //  _______/  /      /  ________ _____/  / "
+    write_to_logs(err, logfile_name)
+    err = "   /  /____/  //  /______   /   /__/_ /  __   //  __   /"
+    write_to_logs(err, logfile_name)
+    err = "  /  _____   //  _______/__/   //   //  / /  //  / /  /"
+    write_to_logs(err, logfile_name)
+    err = " /  /    /  //  /______ / /   //   //  /_/  //  /_/  /"
+    write_to_logs(err, logfile_name)
+    err = "/__/    /__//_________//_____//___//_______//_______/"
+    write_to_logs(err, logfile_name)
+    err = ""
+    write_to_logs(err, logfile_name)
+    err = "Author: Brendan O'Connor"
+    write_to_logs(err, logfile_name)
+    err = "Source Code: https://github.com/boconnor2017"
+    write_to_logs(err, logfile_name)
+    err = ""
+    write_to_logs(err, logfile_name)
+    err = ""
+    write_to_logs(err, logfile_name)
+
 def hesiod_print_header():
     err = ""
     print(err)

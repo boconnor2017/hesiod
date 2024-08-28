@@ -1,8 +1,5 @@
-import httpimport
+import os
 
-url = "https://raw.githubusercontent.com/boconnor2017/hesiod/main/python/"
-
-with httpimport.remote_repo(url):
-  import lib_general as heslibgen
-
-print(heslibgen.hello_world())
+with open("json/lab_environment.json") as file:
+    json_stringvar = file.read()
+    print(json_stringvar)

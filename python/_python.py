@@ -14,6 +14,9 @@ This is a comment block
 a = "Hello world"
 print(a)
 
+# Prints name of the script (filename)
+print(os.path.basename(__file__))
+
 # Import from a remote Github repo (ex. Hesiod)
 import httpimport
 

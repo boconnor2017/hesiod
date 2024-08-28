@@ -111,6 +111,6 @@ def populate_var_from_json_file(json_dir, json_filename):
     json_file_full = json_dir+"/"+json_filename
     # Creates variable vcf_json_raw with contents from json file
     #json_raw = libgen.populate_var_from_file(json_file_full)
-    with open(json_filename) as file:
-        file_txt = file.read()
-        return json_raw
+    with open(json_file_full) as file:
+        json_stringvar = file.read()
+        return json_stringvar
