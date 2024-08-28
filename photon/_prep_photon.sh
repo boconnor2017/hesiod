@@ -40,3 +40,8 @@ python3 -m pip install flask-restful
 python3 -m pip install docker
 python3 -m pip install paramiko
 python3 -m pip install cryptography
+python3 -m pip install httpimport
+python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+python3 -m pip install pandas
+python3 -m pip install matplotlib
+python3 -m pip install pygame
