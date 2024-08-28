@@ -38,6 +38,9 @@ def download_content_from_url_into_var(url):
 def download_file_from_url(url, filename):
     urllib.request.urlretrieve(url, filename)
 
+def hello_world():
+    return "works."
+
 def pause_python_for_duration(seconds):
     time.sleep(seconds)
 

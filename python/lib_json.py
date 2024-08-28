@@ -85,9 +85,21 @@ def download_json_to_var_from_url(url):
     json_stringvar = json_binvar.decode("utf-8")
     return json_stringvar
 
+# Dump converts a JSON python object and writes it to JSON file
+def dump_json_to_file(json_python_obj, json_filename):
+    json_file = open(json_filename, "w")
+    json_dump = json.dump(json_python_obj, json_file, indent = 6)
+
+# Returns the keys from a JSON python object
+def get_keys_from_json(json_python_obj):
+    json_keys = []
+    for key, value in json_python_obj.items():
+        json_keys.append(key)
+    return json_keys
+
 # Loading converts a JSON string to a python object
-def load_json_variable(json_raw):
-    json_python_obj = json.loads(json_raw)
+def load_json_variable(json_stringvar):
+    json_python_obj = json.loads(json_stringvar)
     return json_python_obj
 
 # Populates variable from contents of JSON file
