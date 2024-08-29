@@ -29,7 +29,7 @@ mkdir /usr/local/drop
 git clone https://github.com/boconnor2017/hesiod.git /usr/local/hesiod
 # Start Docker
 systemctl start docker
-systemctl status docker
+#systemctl status docker
 # Pause 10 seconds before running pip commands
 sleep 10
 # Run necessary pip commands
