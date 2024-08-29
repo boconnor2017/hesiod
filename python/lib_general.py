@@ -1,8 +1,10 @@
 # Hesiod General Python Library 2024
 # Author: Brendan O'Connor
-# Date: January 2024
-# Version: 3.0
+# Date: August 2024
+# Version: 4.0
 
+from netifaces import AF_INET, AF_INET6, AF_LINK, AF_PACKET, AF_BRIDGE
+import netifaces as ni
 import requests
 import urllib3
 import urllib
@@ -40,6 +42,12 @@ def download_file_from_url(url, filename):
 
 def hello_world():
     return "works."
+
+def get_ip_address(interface):
+    # Syntax of interface: eth0
+    ip = ni.ifaddresses('eth0')[AF_INET][0]['addr']
+    return ip
+
 
 def pause_python_for_duration(seconds):
     time.sleep(seconds)
