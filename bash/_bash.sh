@@ -17,8 +17,12 @@ echo "You passed: $1"
 ifconfig eth0 $1 netmask $2
 route add default gateway $3
 
-# Broadcast message to users over CLI
-wall -n "This is another test"
+# Terminal Messaging
+wall -n "This is another test" #Broadcasts to all users
+mesg #Turns on write
+
+
+# Write a message to a user over CLI
 
 # Displays available space for filesystems of a certain type 
 df -BM 
@@ -86,14 +90,11 @@ passwd hesiod #will prompt for password change
 # List all users
 cat /etc/passwd 
 
-# Give user sudo privileges
-usermod -aG sudo hesiod
-
 # Switch users
 su - hesiod
 sudo su # to switch to root
 
-# Add user to sudoers file
+# Add user to sudoers file (gives sudo privileges)
 usermod -aG sudo hesiod
 
 # Disable ssh root login
@@ -142,3 +143,15 @@ hesiod   pts/1        2024-08-23 17:52 (172.16.0.4)
 
 # Lists active daemons running on the OS
 systemctl --type=service --state=running
+
+# List ports that are listening
+netstat -tunlp
+
+# Reboots and shutdowns
+shutdown -r #Reboot
+shutdown -r 10:00 #Reboot at 10am
+shutdown -r +5 #Reboot 5min from now
+shutdown -r now #Shut down immediately
+
+# SFTP
+sftp remote_username@server_ip_or_hostname
