@@ -113,6 +113,9 @@ for x in line:
     print("["+str(i)+"]"+line[i])
     i=i+1
 
+# Get current directory
+os.getcwd()
+
 # Append data to a list 
 fruits = ['apple', 'banana', 'cherry']
 fruits.append("orange")
