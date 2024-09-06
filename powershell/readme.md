@@ -9,9 +9,6 @@ docker pull vmware/powerclicore
 ```
 To install PowerCLI directly on the OS:
 ```
-yum -y install powershell
-```
-```
 pwsh
 ```
 ```
