@@ -155,3 +155,6 @@ shutdown -r now #Shut down immediately
 
 # SFTP
 sftp remote_username@server_ip_or_hostname
+
+# Makes executable file available everywhere (ovftool example below)
+ln -s /usr/local/ovftool/./ovftool /usr/bin/ovftool

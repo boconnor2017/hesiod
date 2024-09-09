@@ -14,3 +14,9 @@ esxcli hardware #Sample syntax to find all of the namespaces
 # To resolve time synch issues, NTP needs to be running and policy="Start and Stop with host"
 # If the below command doesnt work, use the UI: ESXi > Manage > System > Time and Date
 esxcli system ntp set --enabled=yes
+
+# Logs: useful to tail -f during bringup
+/var/log/vmware/vcf/bringup/
+
+# SOS Utility: 
+/var/log/vmware/vcf/sddc-support/sos-<timestamp>/
