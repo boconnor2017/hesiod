@@ -4,8 +4,8 @@
 #Required Input variables
 $vmhosts="<IP of management cluster host 1>","<IP of management cluster host 2>","<IP of management cluster host 3>","<IP of management cluster host 4>"
 $ntp="<IP or FQDN of NTP server>"
-$user="root"
-$pwd="<ESXi Host Password>"
+$esxi_user="root"
+$esxi_pwd="<ESXi Host Password>"
 
 #Optional Input variables
 $vSwitch="vSwitch0"
@@ -19,7 +19,7 @@ $fwExceptions="NTP Client"
 Set-PowerCLIConfiguration -InvalidCertificateAction ignore
 
 #Connect to hosts and open a session.
-$vmhosts | Foreach-Object {Connect-VIserver $_ -User $user -Password $pwd}
+$vmhosts | Foreach-Object {Connect-VIserver $_ -User $esxi_user -Password $esxi_pwd}
 
 #Open NTP firewall ports on ESXi host(s)
 Foreach ($svc in $fwExceptions){
