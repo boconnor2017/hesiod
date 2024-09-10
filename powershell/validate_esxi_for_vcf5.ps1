@@ -1,4 +1,4 @@
-# About: The script below validates (and configures) the ESXi host in preparation for VCF bringup. 
+# About: The script below configures the ESXi host in preparation for VCF bringup. 
 # Date: September 2024
 
 #Required Input variables
@@ -38,8 +38,6 @@ $vss = Get-VirtualSwitch -Name $vSwitch -VMHost (Get-VMHost)
 Set-VirtualSwitch $vss -Mtu 9000 -Confirm:$false  -ErrorAction "SilentlyContinue"
 
 #Set VM Network port group VLAN ID to same as Management
-#Get-VMHost | Get-VirtualSwitch | New-VirtualPortGroup -Name $pg -VLanId $vlanId  -ErrorAction "SilentlyContinue"
 Get-VMHost | Get-VirtualPortGroup -Name $pg | Set-VirtualPortGroup -VLanId $vlanId
-#Get-VirtualSwitch | Set-VirtualPortGroup -Name $pg -VLanId $vlanId
 
 Disconnect-Viserver "*" -Confirm:$false
