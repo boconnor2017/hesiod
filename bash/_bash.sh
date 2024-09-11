@@ -141,6 +141,9 @@ hesiod@photon-machine [ /usr/local/hesiod-dev ]$ who
 hesiod   pts/0        2024-08-23 11:58 (172.16.0.4)
 hesiod   pts/1        2024-08-23 17:52 (172.16.0.4)
 
+# Kick a user out of the OS
+sudo pkill -HUP -u hesiod
+
 # Lists active daemons running on the OS
 systemctl --type=service --state=running
 

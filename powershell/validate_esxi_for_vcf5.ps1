@@ -16,7 +16,7 @@ $fwExceptions="NTP Client"
 # # # # # CAUTION: TRY NOT TO CHANGE ANYTHING BEYOND THIS POINT # # # # # # #
 
 #Ignore https cert errors
-Set-PowerCLIConfiguration -InvalidCertificateAction ignore
+Set-PowerCLIConfiguration -InvalidCertificateAction ignore -Confirm:$false
 
 #Connect to hosts and open a session.
 $vmhosts | Foreach-Object {Connect-VIserver $_ -User $esxi_user -Password $esxi_pwd}
@@ -28,7 +28,7 @@ Foreach ($svc in $fwExceptions){
 
 #Set NTP service and turn the policy on. Then start NTP
 Add-VMHostNtpServer -NtpServer $ntp -ErrorAction "SilentlyContinue"
-Get-VMHostService | Where-Object {$_.key -eq "ntpd"} | Set-VMHostService -policy "on" | Start-VMHostService
+Get-VMHostService | Where-Object {$_.key -eq "ntpd"} | Set-VMHostService -policy "on" -Confirm:$false | Start-VMHostService -Confirm:$false
 
 #Set the SSH service and turn the policy on.
 Get-VMHostService | Where-Object {$_.key -eq "TSM-SSH"} | Set-VMHostService -policy "on" -Confirm:$false | Restart-VMHostService -Confirm:$false
