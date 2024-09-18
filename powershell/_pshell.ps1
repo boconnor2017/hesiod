@@ -69,3 +69,6 @@ foreach ($m in $l){
 # -Tail 30 >> show last 30 lines 
 # -Wait >> waits for new lines to be created
 Get-Content filename -Tail 30 -Wait
+
+# Run ESXCLI commands through PowerCLI
+$esxcli = Get-EsxCli -V2
