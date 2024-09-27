@@ -76,7 +76,7 @@ import urllib
 def download_json_file_from_url(url, json_filename):
     # Syntax url: "https://domain.com/foo/bar/something.json"
     # Syntax json_filename: "what_I_want_to_call_it.json"
-    urllib.request.urlretrieve(url, filename)
+    urllib.request.urlretrieve(url, json_filename)
 
 def download_json_to_var_from_url(url):
     # Syntax url: "https://domain.com/foo/bar/something.json"
