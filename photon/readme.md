@@ -26,11 +26,3 @@ Step 5: Refresh local repo (as needed)
 ```
 sh refresh-hesiod.sh
 ``` 
-
-Step 6: Clone dev branch (optional)
-```
-curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/photon/clone_dev_branch.sh >> clone_dev_branch.sh
-```
-```
-sh clone_dev_branch.sh
-```
