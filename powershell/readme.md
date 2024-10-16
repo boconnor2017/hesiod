@@ -45,3 +45,24 @@ pwsh /foo/bar/my_pcli_script.ps1
 ```
 #!/bin/sh
 ```
+
+## Using PowerVCF 
+After installing PowerCLI, run the following commands to get started with PowerVCF.
+```
+pwsh
+```
+```
+Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+```
+```
+Install-Module -Name VMware.PowerCLI -MinimumVersion 12.3.0 -Repository PSGallery
+```
+```
+Install-Module -Name PowerVCF -Repository PSGallery
+```
+
+To begin interacting with your VCF environment, run the following command to obtain a security token.
+```
+Request-VCFToken -fqdn <SDDC Manager FQDN> -username administrator@vsphere.local -password <password>
+```
+
