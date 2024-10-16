@@ -1,8 +1,8 @@
 #!/bin/sh
 
 $usrname = "administrator@vsphere.local"
-$passwrd = "VMware123!VMware123!"
-$sddcmgr_fqdn = "hesvcf-vcf01.hesiod.local"
+$passwrd = "<enter password here>"
+$sddcmgr_fqdn = "<enter fqdn here>"
 
 Request-VCFToken -fqdn $sddcmgr_fqdn -username $usrname -password $passwrd
 Get-VCFHost
