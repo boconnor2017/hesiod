@@ -45,3 +45,4 @@ python3 -m pip install torch torchvision torchaudio --index-url https://download
 python3 -m pip install pandas
 python3 -m pip install matplotlib
 python3 -m pip install pygame
+python3 -m pip install openpyxl
