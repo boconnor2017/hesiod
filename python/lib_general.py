@@ -58,6 +58,7 @@ def populate_var_from_file(file_name):
         return file_txt
 
 def run_local_shell_cmd(cmd):
+    #Syntax: subprocess.run(["powershell", "pwd"], shell=True)
     err = subprocess.run(cmd, capture_output=True)
     return err
 
