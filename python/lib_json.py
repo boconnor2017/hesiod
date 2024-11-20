@@ -86,6 +86,11 @@ def download_json_to_var_from_url(url):
     json_stringvar = json_binvar.decode("utf-8")
     return json_stringvar
 
+# Dump converts a JSON python object to string
+def dump_json(json_python_obj):
+    json_stringvar = json.dumps(json_python_obj)
+    return json_stringvar
+
 # Dump converts a JSON python object and writes it to JSON file
 def dump_json_to_file(json_python_obj, json_filename):
     json_file = open(json_filename, "w")
