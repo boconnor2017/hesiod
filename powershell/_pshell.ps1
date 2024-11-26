@@ -72,3 +72,6 @@ Get-Content filename -Tail 30 -Wait
 
 # Run ESXCLI commands through PowerCLI
 $esxcli = Get-EsxCli -V2
+
+# Get Public IP Address
+curl ifcfg.me
