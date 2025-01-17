@@ -3,9 +3,7 @@ Git Template
 Author: Brendan O'Connor 
 Date: January 2025
 
-The purpose of this program is to provide enough of a starting point 
-to write bash (sh) scrtipts without needing to do too much research
-on syntax.
+The purpose of this program is to provide a starting point for using git command line.
 ``` 
 
 # Getting Started
