@@ -48,9 +48,13 @@ def get_ip_address(interface):
     ip = ni.ifaddresses('eth0')[AF_INET][0]['addr']
     return ip
 
-
 def pause_python_for_duration(seconds):
     time.sleep(seconds)
+
+def populate_file_from_var(file_name, var_as_str):
+    with open(file_name, 'w+') as fh:
+        fh.write(var_as_str)
+    file_name.close()
 
 def populate_var_from_file(file_name):
     with open(file_name) as file:
