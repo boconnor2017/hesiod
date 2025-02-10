@@ -12,7 +12,7 @@ To install PowerCLI directly on the OS:
 pwsh
 ```
 ```
-Install-Module VMware.PowerCLI
+Install-Module -Name VMware.PowerCLI
 ```
 
 ## Syntax for using PowerCLI container (Docker)
