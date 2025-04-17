@@ -47,4 +47,5 @@ python3 -m pip install matplotlib
 python3 -m pip install pygame
 python3 -m pip install openpyxl
 python3 -m pip install markitdown
+python3 -m pip install markitdown[all]
 python3 -m pip install markdown-to-json
