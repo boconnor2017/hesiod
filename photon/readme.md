@@ -1,5 +1,5 @@
 # PhotonOS Quick Start
-Step 1: Deploy Photon (photon-ova-4.0-ca7c9e9330.ova)
+Step 1: Deploy Photon (photon-ova-X.Y-zzzzzzzzzz.ova)
 For downloads visit: https://github.com/vmware/photon/wiki/Downloading-Photon-OS 
 
 The default password is `changeme`. For all labs, use `/usr/local/` as the working directory.
