@@ -77,8 +77,10 @@ n #New partition
 (default) #Use the default - will be something like 104857566
 N #Partition 2 should contain ext4 signature, if so do not remove signature
 p #List partitions - you should see new size next to Linux filesystem
+v #Verify the partition data
+w #Write table to disk
+fdisk /dev/sda #You should see that sda2 is now resized
 q #Quit fdisk
-resize2fs /dev/sda2
 
 # Run multiple commands from one line 
 (echo "this"; echo "that"; echo "the other thing")
