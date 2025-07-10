@@ -152,6 +152,9 @@ systemctl --type=service --state=running
 # List ports that are listening
 netstat -tunlp
 
+# Open Ports
+iptables -A INPUT -i eth0 -p udp --dport 443 -j ACCEPT
+
 # Reboots and shutdowns
 shutdown -r #Reboot
 shutdown -r 10:00 #Reboot at 10am
