@@ -18,7 +18,7 @@
 
 # Update/install basic Linux tools
 yum -y update --nogpgcheck
-yum -y install git bindutils lvm2 sudo powershell unzip tree
+yum -y install git bindutils lvm2 sudo powershell unzip tree tar
 yum -y install https://repo.ius.io/ius-release-el$(rpm -E '%{rhel}').rpm
 # Install python3
 yum -y install python3
