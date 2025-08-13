@@ -17,9 +17,9 @@ Step 3: Download refresher script
 curl https://raw.githubusercontent.com/boconnor2017/hesiod/main/photon/_refresh_photon.sh >> refresh-hesiod.sh
 ```
 
-Step 4: Run E2E lab PhotonOS prep script. (Optional: open a second terminal and watch progress with `tail -f _prep_photon.log`).
+Step 4: Run E2E lab PhotonOS prep script. 
 ```
-sh prep-photon.sh >> _prep_photon.log
+sh prep-photon.sh 
 ```
 
 Step 5: Refresh local repo (as needed)
