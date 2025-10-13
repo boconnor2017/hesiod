@@ -8,7 +8,7 @@ Project Hesiod is a git repository with all necessary bodies of work to begin so
 # Hesiod Architecture
 ![img01](img/hesiod-architecture01.png)   
 
-# Getting Started (Hesiod Main)
+# Prerequisite: Getting Started (Hesiod Main)
 Step 1: Deploy Photon (photon-ova-X.Y-zzzzzzzzzz.ova) to your ESXi host.
 For downloads visit: https://github.com/vmware/photon/wiki/Downloading-Photon-OS 
 
@@ -27,7 +27,9 @@ Step 3: Install the Hesiod Binaries and create Hesiod Main using the following c
 sh build_hesiod_main.sh
 ```
 
-# Deploy a Hesiod Nodes
+# Deploy Hesiod Nodes
+Using the Hesiod Main appliance:   
+
 Step 1: download/sftp the Photon binaries (photon-ova-X.Y-zzzzzzzzzz.ova) to `/usr/local/drop`   
 Step 2: Edit the "physical_server" specs in the `json/lab_environment.json` file with appropriate details about the target physical ESXi host   
 Step 3: Edit the "hesiod_nodes" spec in the `json/lab_environment.json` file with appropriate details about how to configure the Hesiod Node(s)   
