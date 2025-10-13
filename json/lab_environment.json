@@ -1,0 +1,19 @@
+{
+    "logs" : {
+        "test.py" : "_test.log",
+        "hesiod-node.py" : "_hesiod-node.log"
+    },
+    "physical_server" : [{
+        "username" : "<enter username for ESXi host here> (sample: root)",
+        "password" : "<enter password for ESXi host here> (sample: VMware123!)",
+        "ip_address" : "<enter IP Address for ESXi host here> (sample: 10.0.0.10)",
+        "server_type" : "<optional setting>", 
+        "deploy_vms_to_this_network" : "<enter the port group where you want to attach Hesiod Nodes> (sample: VM Network)", 
+        "deploy_vms_to_this_datastore" : "<enter the datastore where you want to deploy the Hesiod Nodes> (sample: datastore1)"
+    }],
+    "hesiod_nodes" : [{
+        "vm_name" : "<enter the name of the photon vm> (sample: hesnode01)",
+        "ip_address" : "<enter the ip address of the photon vm> (sample: 10.0.0.11)",
+        "password" : "<enter the desired password of the photon vm> (sample: VMware123!)"
+    }]
+}

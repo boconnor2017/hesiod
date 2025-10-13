@@ -17,7 +17,22 @@ SSH into the appliance. The default password is `changeme`. For all Modules, use
 cd /usr/local/
 ```
 
-Step 2: Install the Hesiod Binaries and create Hesiod Main
+Step 2: Download the Install Script
+```
+curl https://raw.githubusercontent.com/boconnor2017/hesiod/refs/heads/main/build_hesiod_main.sh >> build_hesiod_main.sh
+```
+
+Step 3: Install the Hesiod Binaries and create Hesiod Main using the following command
 ```
 sh build_hesiod_main.sh
+```
+
+# Deploy a Hesiod Nodes
+Step 1: download/sftp the Photon binaries (photon-ova-X.Y-zzzzzzzzzz.ova) to `/usr/local/drop`   
+Step 2: Edit the "physical_server" specs in the `json/lab_environment.json` file with appropriate details about the target physical ESXi host   
+Step 3: Edit the "hesiod_nodes" spec in the `json/lab_environment.json` file with appropriate details about how to configure the Hesiod Node(s)   
+
+Step 4: Deploy Hesiod Node(s) using the following command
+```
+python3 hesiod-node.py -build
 ```
