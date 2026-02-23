@@ -3,6 +3,7 @@ from python import lib_general as libgen
 from python import lib_json as libjson
 from python import lib_logs_and_headers as liblog 
 from python import lib_paramiko as libpko 
+from lib import run_scripts as runscript
 
 # Import Standard Python libraries
 import os
@@ -69,6 +70,21 @@ def build_hesiod_node_v2(env_json_py):
             c=c+1
         print("Command Check for Hesiod Node"+str(i+1)+": "+cmdcheck)
         runcmd = os.system(cmdcheck)
+        print("Creating powershell scripts.")
+        runscript.pcli_create_script("Set-VMKeystrokes")
+        runscript.pcli_create_script("pcli_init_hesiod_node")
+        print("Injecting powershell variables.")
+        runscript.pcli_inject_script_with_var("ID:SIV-001", env_json_py["physical_server"]["ip_address"], "pcli_init_hesiod_node.ps1")
+        runscript.pcli_inject_script_with_var("ID:SIV-002", env_json_py["physical_server"]["username"], "pcli_init_hesiod_node.ps1")
+        runscript.pcli_inject_script_with_var("ID:SIV-003", env_json_py["physical_server"]["password"], "pcli_init_hesiod_node.ps1")
+        runscript.pcli_inject_script_with_var("ID:VIV-001", env_json_py["hesiod_nodes"][i]["vm_name"], "pcli_init_hesiod_node.ps1")
+        runscript.pcli_inject_script_with_var("ID:CRED-001", env_json_py["hesiod_nodes"][i]["password"], "pcli_init_hesiod_node.ps1")
+        runscript.pcli_inject_script_with_var("ID:NET-001", "eth0", "pcli_init_hesiod_node.ps1")
+        runscript.pcli_inject_script_with_var("ID:NET-002", env_json_py["hesiod_nodes"][i]["ip_address"], "pcli_init_hesiod_node.ps1")
+        runscript.pcli_inject_script_with_var("ID:NET-003", "255.255.255.0", "pcli_init_hesiod_node.ps1")
+        runscript.pcli_inject_script_with_var("ID:NET-004", env_json_py["hesiod_nodes"][i]["gateway"], "pcli_init_hesiod_node.ps1")
+        print("Running powershell configuration script.")
+        runscript.pcli_execute_script("pcli_init_hesiod_node")
         i=i+1
 
 

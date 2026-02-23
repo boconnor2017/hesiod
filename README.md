@@ -38,7 +38,15 @@ cd /usr/local/hesiod/
 
 Step 2: Edit the specs in the `json/lab_environment.json` file with appropriate details. Note: you can deploy multiple Hesiod Node(s) per server with one build, but you cannot deploy to multiple servers with one build.    
 
-Step 3: Deploy Hesiod Node(s) using the following command
+Step 3: Configure PowerCLI
+```
+pwsh
+```
+```
+Install-Module -Name VMware.PowerCLI
+```
+
+Step 4: Deploy Hesiod Node(s) using the following command
 ```
 python3 hesiod-node.py -build
 ```

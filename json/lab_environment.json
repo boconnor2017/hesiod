@@ -15,6 +15,7 @@
     "hesiod_nodes" : [{
         "vm_name" : "<enter the name of the photon vm> (sample: hesnode01)",
         "ip_address" : "<enter the ip address of the photon vm> (sample: 10.0.0.11)",
-        "password" : "<enter the desired password of the photon vm> (sample: VMware123!)"
+        "password" : "<enter the desired password of the photon vm> (sample: VMware123!)",
+        "gateway" : "<enter the network default gateway of the photon vm> (sample: 10.0.0.1)"
     }]
 }

@@ -1,0 +1,75 @@
+#!/bin/sh
+
+# Server Input Variables
+$esxi_server_ip_address = "ID:SIV-001"
+$esxi_server_username = "ID:SIV-002"
+$esxi_server_password = "ID:SIV-003"
+
+# VM Input Variables
+$vm_name = "ID:VIV-001"
+
+# Photon Default Credentials
+$default_un = "root" 
+$default_pw = "changeme"
+
+# New Credentials 
+$new_pw = "ID:CRED-001"
+
+# Network Config
+$eth = "ID:NET-001"
+$ip_address = "ID:NET-002"
+$netmask = "ID:NET-003"
+$gateway = "ID:NET-004"
+
+# Ignore https cert errors
+Set-PowerCLIConfiguration -InvalidCertificateAction ignore -Confirm:$false
+
+# Connect to the ESXi host and open a session.
+$esxi_server_ip_address | Foreach-Object {Connect-VIserver $_ -User $esxi_server_username -Password $esxi_server_password}
+
+# Get VM Info
+$hesiod_node = Get-VM -Name $vm_name
+
+# Start VM
+Start-vm -vm $hesiod_node.Name
+
+# Pause for initial boot
+Start-Sleep -Seconds 20
+
+# Establish Set-VMKeystrokes file as a function
+. .\Set-VMKeystrokes.ps1
+
+Set-VMKeystrokes -VMName $hesiod_node.Name -StringInput "root"
+Start-Sleep -Seconds 1
+Set-VMKeystrokes -VMName $hesiod_node.Name -ReturnCarriage $true
+Start-Sleep -Seconds 1
+Set-VMKeystrokes -VMName $hesiod_node.Name -StringInput "changeme"
+Start-Sleep -Seconds 1
+Set-VMKeystrokes -VMName $hesiod_node.Name -StringInput "changeme"
+Start-Sleep -Seconds 1
+Set-VMKeystrokes -VMName $hesiod_node.Name -ReturnCarriage $true
+Start-Sleep -Seconds 1
+Set-VMKeystrokes -VMName $hesiod_node.Name -StringInput $new_pw
+Start-Sleep -Seconds 1
+Set-VMKeystrokes -VMName $hesiod_node.Name -ReturnCarriage $true
+Start-Sleep -Seconds 1
+Set-VMKeystrokes -VMName $hesiod_node.Name -StringInput $new_pw
+Start-Sleep -Seconds 1
+Set-VMKeystrokes -VMName $hesiod_node.Name -ReturnCarriage $true
+Start-Sleep -Seconds 1
+Set-VMKeystrokes -VMName $hesiod_node.Name -StringInput "ifconfig $eth $ip_address netmask $netmask"
+Start-Sleep -Seconds 1
+Set-VMKeystrokes -VMName $hesiod_node.Name -ReturnCarriage $true
+Start-Sleep -Seconds 1
+Set-VMKeystrokes -VMName $hesiod_node.Name -StringInput "route add default gateway $gateway"
+Start-Sleep -Seconds 1
+Set-VMKeystrokes -VMName $hesiod_node.Name -ReturnCarriage $true
+Start-Sleep -Seconds 1
+Set-VMKeystrokes -VMName $hesiod_node.Name -StringInput "curl https://raw.githubusercontent.com/boconnor2017/hesiod/refs/heads/main/build_hesiod_main.sh >> build_hesiod_main.sh"
+Start-Sleep -Seconds 1
+Set-VMKeystrokes -VMName $hesiod_node.Name -ReturnCarriage $true
+Start-Sleep -Seconds 5
+Set-VMKeystrokes -VMName $hesiod_node.Name -StringInput "sh build_hesiod_main.sh"
+Start-Sleep -Seconds 1
+Set-VMKeystrokes -VMName $hesiod_node.Name -ReturnCarriage $true
+Start-Sleep -Seconds (60*5)
