@@ -36,9 +36,9 @@ Step 1: Download or SFTP the Photon binaries (photon-ova-X.Y-zzzzzzzzzz.ova) fro
 cd /usr/local/hesiod/
 ```
 
-Step 2: Edit the "physical_server" specs and "hesiod_nodes" spec in the `json/lab_environment.json` file with appropriate details.   
+Step 2: Edit the specs in the `json/lab_environment.json` file with appropriate details. Note: you can deploy multiple Hesiod Node(s) per server with one build, but you cannot deploy to multiple servers with one build.    
 
-Step 4: Deploy Hesiod Node(s) using the following command
+Step 3: Deploy Hesiod Node(s) using the following command
 ```
 python3 hesiod-node.py -build
 ```
