@@ -30,9 +30,13 @@ sh build_hesiod_main.sh
 # Deploy Hesiod Nodes
 Using the Hesiod Main appliance:   
 
-Step 1: download/sftp the Photon binaries (photon-ova-X.Y-zzzzzzzzzz.ova) to `/usr/local/drop`   
-Step 2: Edit the "physical_server" specs in the `json/lab_environment.json` file with appropriate details about the target physical ESXi host   
-Step 3: Edit the "hesiod_nodes" spec in the `json/lab_environment.json` file with appropriate details about how to configure the Hesiod Node(s)   
+Step 1: Download or SFTP the Photon binaries (photon-ova-X.Y-zzzzzzzzzz.ova) from the link above to `/usr/local/drop`   
+
+```
+cd /usr/local/hesiod/
+```
+
+Step 2: Edit the "physical_server" specs and "hesiod_nodes" spec in the `json/lab_environment.json` file with appropriate details.   
 
 Step 4: Deploy Hesiod Node(s) using the following command
 ```

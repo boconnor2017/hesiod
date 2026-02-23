@@ -10,6 +10,13 @@
 This is a comment block
 """
 
+# Preferred Looping Mechanism
+i=0
+some_list = ["a", "b", "c"]
+while i < len(some_list):
+    print(some_list[i])
+    i=i+1
+
 # Send output to command line
 a = "Hello world"
 print(a)

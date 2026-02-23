@@ -47,30 +47,30 @@ def _main_(args):
     if '-build' in args:
         err = "    -build found. Initiating hesiod node deployment."
         liblog.write_to_logs(err, logfile_name)
-        build_hesiod_node(env_json_py)
+        build_hesiod_node_v2(env_json_py)
         sys.exit()
 
-def build_hesiod_node(env_json_py):
-    # ovftool --noSSLVerify --acceptAllEulas --name=test002 --datastore=datastore1 --network="VM Network" /usr/local/drop/photon-hw15-5.0.ova vi://root:"VMware1!"@172.16.0.201
-    # ovftool --noSSLVerify --acceptAllEulas --name=test003 --datastore=datastore1 --network="VM Network" /usr/local/drop/photon-hw15-5.0.ova vi://root:"VMware1!"@172.16.0.201
-    setup_ovftool()
-    ovftool_cmd = []
-    ovftool_cmd.append("ovftool")
-    ovftool_cmd.append("--noSSLVerify")
-    ovftool_cmd.append("--acceptAllEulas")
-    ovftool_cmd.append("--name=test003")
-    ovftool_cmd.append("--datastore=datastore1")
-    ovftool_cmd.append("--network=\"VM Network\"")
-    ovftool_cmd.append("/usr/local/drop/photon-hw15-5.0.ova")
-    ovftool_cmd.append("vi://root:\"VMware1!\"@172.16.0.201")    
-    cmdcheck = ""
+def build_hesiod_node_v2(env_json_py):
     i=0
-    while i < len(ovftool_cmd):
-        cmdcheck = cmdcheck+ovftool_cmd[i]+" "
+    while i < len(env_json_py["hesiod_nodes"]):
+        ovftool_cmd = []
+        ovftool_cmd.append("ovftool")
+        ovftool_cmd.append("--noSSLVerify")
+        ovftool_cmd.append("--acceptAllEulas")
+        ovftool_cmd.append("--name="+env_json_py["hesiod_nodes"][i]["vm_name"])
+        ovftool_cmd.append("--datastore="+env_json_py["physical_server"]["deploy_vms_to_this_datastore"])
+        ovftool_cmd.append("--network=\""+env_json_py["physical_server"]["deploy_vms_to_this_network"]+"\"")
+        ovftool_cmd.append(env_json_py["photon_specs"])
+        ovftool_cmd.append("vi://"+env_json_py["physical_server"]["username"]+":\""+env_json_py["physical_server"]["password"]+"\"@"+env_json_py["physical_server"]["ip_address"]+"")
+        cmdcheck = ""
+        c=0
+        while c < len(ovftool_cmd):
+            cmdcheck = cmdcheck+ovftool_cmd[c]+" "
+            c=c+1
+        print("Command Check for Hesiod Node"+str(i+1)+": "+cmdcheck)
+        runcmd = os.system(cmdcheck)
         i=i+1
-    print("Command Check: "+cmdcheck)
-    err = subprocess.run(ovftool_cmd, capture_output=True)
-    print(err)
+
 
 def help_menu():
     print("HELP MENU: hesiod-node.py [options]")
