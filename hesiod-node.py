@@ -70,10 +70,14 @@ def build_hesiod_node_v2(env_json_py):
             c=c+1
         print("Command Check for Hesiod Node"+str(i+1)+": "+cmdcheck)
         runcmd = os.system(cmdcheck)
-        print("Creating powershell scripts.")
+        i=i+1
+
+    i=0
+    while i < len(env_json_py["hesiod_nodes"]):
+        print("Creating powershell scripts for node "+env_json_py["hesiod_nodes"][i]["vm_name"])
         runscript.pcli_create_script("Set-VMKeystrokes")
         runscript.pcli_create_script("pcli_init_hesiod_node")
-        print("Injecting powershell variables.")
+        print("Injecting powershell variables for node "+env_json_py["hesiod_nodes"][i]["vm_name"])
         runscript.pcli_inject_script_with_var("ID:SIV-001", env_json_py["physical_server"]["ip_address"], "pcli_init_hesiod_node.ps1")
         runscript.pcli_inject_script_with_var("ID:SIV-002", env_json_py["physical_server"]["username"], "pcli_init_hesiod_node.ps1")
         runscript.pcli_inject_script_with_var("ID:SIV-003", env_json_py["physical_server"]["password"], "pcli_init_hesiod_node.ps1")
@@ -83,8 +87,11 @@ def build_hesiod_node_v2(env_json_py):
         runscript.pcli_inject_script_with_var("ID:NET-002", env_json_py["hesiod_nodes"][i]["ip_address"], "pcli_init_hesiod_node.ps1")
         runscript.pcli_inject_script_with_var("ID:NET-003", "255.255.255.0", "pcli_init_hesiod_node.ps1")
         runscript.pcli_inject_script_with_var("ID:NET-004", env_json_py["hesiod_nodes"][i]["gateway"], "pcli_init_hesiod_node.ps1")
-        print("Running powershell configuration script.")
+        print("Running powershell configuration script for node "+env_json_py["hesiod_nodes"][i]["vm_name"])
         runscript.pcli_execute_script("pcli_init_hesiod_node")
+        print("Pausing 60 seconds to let configuration take effect...")
+        libgen.pause_python_for_duration(60)
+        print("    * * *   ")
         i=i+1
 
 

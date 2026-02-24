@@ -32,13 +32,7 @@ Using the Hesiod Main appliance:
 
 Step 1: Download or SFTP the Photon binaries (photon-ova-X.Y-zzzzzzzzzz.ova) from the link above to `/usr/local/drop`   
 
-```
-cd /usr/local/hesiod/
-```
-
-Step 2: Edit the specs in the `json/lab_environment.json` file with appropriate details. Note: you can deploy multiple Hesiod Node(s) per server with one build, but you cannot deploy to multiple servers with one build.    
-
-Step 3: Configure PowerCLI
+Step 2: Configure PowerCLI
 ```
 pwsh
 ```
@@ -46,7 +40,24 @@ pwsh
 Install-Module -Name VMware.PowerCLI
 ```
 
-Step 4: Deploy Hesiod Node(s) using the following command
+Step 3: Configure ovftool
+```
+unzip /usr/local/hesiod/ovftool/VMware-ovftool*
+```
+```
+ln -s /usr/local/ovftool/./ovftool /usr/bin/ovftool
+```
+Validate:
+```
+ovftool --version
+```
+```
+cd /usr/local/hesiod/
+```   
+
+Step 4: Edit the specs in the `json/lab_environment.json` file with appropriate details. Note: you can deploy multiple Hesiod Node(s) per server with one build, but you cannot deploy to multiple servers with one build.    
+
+Deploy Hesiod Node(s) using the following command
 ```
 python3 hesiod-node.py -build
 ```
