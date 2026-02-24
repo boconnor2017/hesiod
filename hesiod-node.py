@@ -92,6 +92,9 @@ def build_hesiod_node_v2(env_json_py):
         print("Pausing 60 seconds to let configuration take effect...")
         libgen.pause_python_for_duration(60)
         print("    * * *   ")
+        #Bug fix
+        bugfixcmd = "mv ~/hesiod/ /usr/local/"
+        runbugfix = os.system(bugfixcmd)
         i=i+1
 
 
