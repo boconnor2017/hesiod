@@ -11,6 +11,9 @@ Step 2: SSH into the appliance. Recommended: `sudo -i`. For all Modules, use `/u
 ```
 cd /usr/local/
 ```
+```
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker container-desktop; do sudo apt-get remove $pkg; done
+```
 
 Step 3: Download the Install Script
 ```

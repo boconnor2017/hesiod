@@ -21,7 +21,7 @@
 # Update/install basic Linux tools
 apt -y update --nogpgcheck
 #apt -y clean all
-apt -y install git bindutils lvm2 sudo powershell unzip tree tar curl
+apt -y install git bindutils lvm2 sudo powershell unzip tree tar curl docker.io
 apt -y install https://repo.ius.io/ius-release-el$(rpm -E '%{rhel}').rpm
 # Install python3
 apt -y install python3 python3-pip python3-venv
