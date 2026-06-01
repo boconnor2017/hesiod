@@ -7,14 +7,7 @@
 # CentOS, RedHat, etc are fully supported. Please note that this script will need to be edited to 
 # execute properly on non-Ubuntu operating systems (for example: apt vs apt-install or .sh vs .ps1). 
 #
-# Ubuntu Prereqs:
-#   1. Install Ubuntu Server 64-bit from ISO (4x16x100 vm)
-#   2. Use all default settings
-#   3. Recommended: sudo -i
-#   4. Install: sudo apt install net-tools 
-#   5. Config: sudo ifconfig ens34 <ip address> netmask <subnet>, sudo route add default gateway <gateway> 
-#   6. Install: sudo apt install openssh-server -y
-#   7. Use build_hesiod_main_ubuntu.sh
+
 #
 # Preparation includes the following:
 #     1. Basic Linux Tools: git, bindutils, lvm2
