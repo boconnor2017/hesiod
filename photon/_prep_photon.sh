@@ -57,3 +57,4 @@ python3 -m pip install markitdown
 python3 -m pip install markitdown[all]
 python3 -m pip install markdown-to-json
 python3 -m pip install vcf-sdk
+python3 -m pip install netifaces2
