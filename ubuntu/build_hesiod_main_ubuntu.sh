@@ -1,7 +1,7 @@
 curl https://raw.githubusercontent.com/boconnor2017/hesiod/refs/heads/main/ubuntu/_prep_ubuntu.sh >> prep-ubuntu.sh
 curl https://raw.githubusercontent.com/boconnor2017/hesiod/refs/heads/main/ubuntu/_refresh_ubuntu.sh >> refresh-hesiod.sh
 sh prep-ubuntu.sh
-sh refresh-ubuntu.sh
+sh refresh-hesiod.sh
 echo ""
 echo ""
 echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"
