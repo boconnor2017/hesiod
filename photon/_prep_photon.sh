@@ -18,7 +18,8 @@
 
 # Update/install basic Linux tools
 yum -y update --nogpgcheck
-yum -y install git bindutils lvm2 sudo powershell unzip tree tar
+yum -y clean all
+yum -y install git bindutils lvm2 sudo powershell unzip tree tar curl
 yum -y install https://repo.ius.io/ius-release-el$(rpm -E '%{rhel}').rpm
 # Install python3
 yum -y install python3
@@ -47,11 +48,11 @@ python3 -m pip install docker
 python3 -m pip install paramiko
 python3 -m pip install cryptography
 python3 -m pip install httpimport
-python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-python3 -m pip install pandas
-python3 -m pip install matplotlib
-python3 -m pip install pygame
-python3 -m pip install openpyxl
+#python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+#python3 -m pip install pandas
+#python3 -m pip install matplotlib
+#python3 -m pip install pygame
+#python3 -m pip install openpyxl
 python3 -m pip install markitdown
 python3 -m pip install markitdown[all]
 python3 -m pip install markdown-to-json
