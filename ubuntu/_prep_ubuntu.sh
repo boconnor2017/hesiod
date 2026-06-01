@@ -14,9 +14,7 @@
 #   4. Install: sudo apt install net-tools 
 #   5. Config: sudo ifconfig ens34 <ip address> netmask <subnet>, sudo route add default gateway <gateway> 
 #   6. Install: sudo apt install openssh-server -y
-#   7. Config: curl https://raw.githubusercontent.com/boconnor2017/hesiod/refs/heads/main/build_hesiod_main.sh >> build_hesiod_main.sh
-#   8. Config: vi build_hesiod_main.sh and replace "photon" url path with "ubuntu"
-#   9. Run Hesiod Main build script
+#   7. Use build_hesiod_main_ubuntu.sh
 #
 # Preparation includes the following:
 #     1. Basic Linux Tools: git, bindutils, lvm2
@@ -33,7 +31,7 @@ apt -y update --nogpgcheck
 apt -y install git bindutils lvm2 sudo powershell unzip tree tar curl
 apt -y install https://repo.ius.io/ius-release-el$(rpm -E '%{rhel}').rpm
 # Install python3
-apt -y install python3
+apt -y install python3 python3-pip python3-venv
 python3 --version
 # Install docker compose
 DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
