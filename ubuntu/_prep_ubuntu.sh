@@ -1,0 +1,71 @@
+# Hesiod Ubuntu Prep Script
+# Author: Brendan O'Connor
+# Date: September 2023
+
+# The purpose of this script is to prepare a UbuntuOS appliance (Linux with Docker) for development. 
+# UbuntuOS is the primary OS of choice for Project Hesiod. Other Operating Systems such as Windows
+# CentOS, RedHat, etc are fully supported. Please note that this script will need to be edited to 
+# execute properly on non-Ubuntu operating systems (for example: apt vs apt-install or .sh vs .ps1). 
+#
+# Ubuntu Prereqs:
+#   1. Install Ubuntu Server 64-bit from ISO (4x16x100 vm)
+#   2. Use all default settings
+#   3. Recommended: sudo -i
+#   4. Install: sudo apt install net-tools 
+#   5. Config: sudo ifconfig ens34 <ip address> netmask <subnet>, sudo route add default gateway <gateway> 
+#   6. Install: sudo apt install openssh-server -y
+#   7. Config: curl https://raw.githubusercontent.com/boconnor2017/hesiod/refs/heads/main/build_hesiod_main.sh >> build_hesiod_main.sh
+#   8. Config: vi build_hesiod_main.sh and replace "photon" url path with "ubuntu"
+#   9. Run Hesiod Main build script
+#
+# Preparation includes the following:
+#     1. Basic Linux Tools: git, bindutils, lvm2
+#     2. Python3
+#     3. A drop folder (for sftp and other binaries)
+#     4. Project Hesiod repo is cloned from Git
+#     5. Docker is started
+#     6. resolv.conf is edited to enable public nslookup
+#     7. Python modules (pip): setuptools, flask-restful, docker, paramiko, VMware Python SDK, cryptography
+
+# Update/install basic Linux tools
+apt -y update --nogpgcheck
+#apt -y clean all
+apt -y install git bindutils lvm2 sudo powershell unzip tree tar curl
+apt -y install https://repo.ius.io/ius-release-el$(rpm -E '%{rhel}').rpm
+# Install python3
+apt -y install python3
+python3 --version
+# Install docker compose
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p $DOCKER_CONFIG/cli-plugins
+curl -SL https://github.com/docker/compose/releases/download/v2.38.2/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+docker compose version
+# Create drop folder
+mkdir /usr/local/drop
+# Clone this repository
+git clone https://github.com/boconnor2017/hesiod.git /usr/local/hesiod
+# Start Docker
+systemctl start docker
+#systemctl status docker
+# Pause 10 seconds before running pip commands
+sleep 10
+# Run necessary pip commands
+python3 -m ensurepip
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade pip setuptools
+python3 -m pip install flask-restful
+python3 -m pip install docker
+python3 -m pip install paramiko
+python3 -m pip install cryptography
+python3 -m pip install httpimport
+#python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+#python3 -m pip install pandas
+#python3 -m pip install matplotlib
+#python3 -m pip install pygame
+#python3 -m pip install openpyxl
+python3 -m pip install markitdown
+python3 -m pip install markitdown[all]
+python3 -m pip install markdown-to-json
+python3 -m pip install vcf-sdk
+python3 -m pip install netifaces2
